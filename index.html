@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="en">
+  
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,11 +20,46 @@
       <h1 class="text-light">Clemson Parking Hub</h1>
     </header>
     <main>
+
       <h1 class="text-light">What type of permit do you have?</h1>
       <form>
-        Permit Type: <input type="text" name="permitType"> 
-        <button id="downloadBtn" type="submit" class="btn btn-primary">Enter</button>
+        Permit Type:
+        <select id="permitTypeSelect" name="permitType">
+          <option value="">Select a permit type</option>
+          <option value="Commuter">Commuter</option>
+          <option value="Douthit Resident">Douthit Resident</option>
+          <option value="East or West Resident">East or West Resident</option>
+          <option value="Employee">Employee</option>
+          <option value="Park-N-Ride">Park-N-Ride</option>
+          <option value="Apartment">Apartment</option>
+          <option value="Carpool">Carpool</option>
+        </select>
+        <button id="downloadBtn" type="button" class="btn btn-primary" onclick="updatePermitType()">Enter</button>
+        <script>
+          function updatePermitType() {
+            const permitType = document.getElementById("permitTypeSelect").value;
+            let parkingInfo = '';
+            if (permitType === 'Commuter') {
+              parkingInfo = 'You can park in:<br>C Lots<br>Employee Spaces (Weekdays, 4:30 PM to 7:00 AM)<br>Employee Spaces (Weekends, 4:30PM Friday to 7 AM Monday)<br>Visitor Spots (9 PM to 7 AM)';
+            } else if (permitType === 'Douthit Resident') {
+              parkingInfo = 'You can park in:<br>R7<br>R8<br>R8 EXT<br> R9<br>R10<br>Employee Spaces (Weekdays, 4:30 PM to 7:00 AM)<br>Employee Spaces (Weekends, 4:30PM Friday to 7 AM Monday)<br>Visitor Spots (9 PM to 7 AM)';
+            } else if (permitType === 'East or West Resident') {
+              parkingInfo = 'East Residents:<br> You can park in:<br>R1<br>R2<br>R5<br>McMillan Rd. East<br>Employee Spaces (Weekdays, 7:30PM to 7 AM)<br>Employee Spaces (Weekends, 4:30PM Friday to 7 AM Monday)<br>Visitor Spots (9 PM to 7 AM)<br> <br>West Residents:<br> You can park in:<br>R3<br>R3 EXT<br>P4<br>Employee Spaces (Weekdays, 7:30 PM to 7 AM)<br>Employee Spaces (Weekends, 4:30 PM Friday to 7 AM Monday)<br>Visitor Spots (9 PM to 7 AM)';
+            } else if (permitType === 'Employee') {
+              parkingInfo = 'You can park in:<br>C Lots<br>Employee Spaces<br>Employee 24 Hour Spaces<br>Visitor Spots (9 PM to 7 AM)';
+            } else if (permitType === 'Park-N-Ride') {
+              parkingInfo = 'You can park in:<br>East (P5, P7, P8)<br>West (P6)<br>Employee Spaces (Weekdays, 7:30PM to 7 AM)<br>Employee Spaces (Weekends, 4:30PM Friday to 7 AM Monday)<br>Visitor Spots (9 PM to 7 AM)';
+            } else if (permitType === 'Apartment') {
+              parkingInfo = 'You can park in:<br>Calhoun Courts<br>Thornhill<br>Lightsey<br>R4<br>R4 Ext<br>Employee Spaces (Weekdays, 7:30PM to 7 AM)<br>Employee Spaces (Weekends, 4:30PM Friday to 7 AM Monday)<br>Visitor Spots (9 PM to 7 AM)';
+            } else if (permitType === 'Carpool') {
+              parkingInfo = 'You can park in:<br>Brooks Center<br>P&A building<br>Sirrine lot North and South<br>C-11<br>E-4<br>Newman Hall<br>Employee Spaces (Weekdays, 7:30 PM to 7:00 AM)<br>Employee Spaces (Weekends, 4:30 PM Friday to 7:00 AM Monday)';
+            }
+            document.getElementById("parking-info").innerHTML = parkingInfo;
+          }
+        </script>  
       </form>
+      <p id="parking-info"></p>
+
     </main>
     <div id="map"></div>
     <script src="https://api.mapbox.com/mapbox-assembly/mbx/v0.28.2/assembly.js"></script>
@@ -53,3 +88,4 @@
       </body>
 
     </html>
+    
