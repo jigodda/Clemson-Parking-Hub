@@ -4,14 +4,43 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clemson Parking Hub</title>
+    <title>  Clemson Parking Hub</title>
     <link href="https://api.mapbox.com/mapbox-assembly/mbx/v0.28.2/assembly.min.css" rel="stylesheet" />
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.css" rel="stylesheet" />
     <link href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.1/mapbox-gl-geocoder.css" rel="stylesheet" />
     <style>
       #map {
-        height: 400px;
-        width: 600px;
+        height: 100vh;
+        width: 100vw;
+      }
+    </style>
+    <style>
+      /* Style the header with an orange background color */
+      header {
+        background-color: #FC6A03;
+        padding: 10px;
+      }
+    
+      /* Style the h1 tags with a purple text color */
+      h1 {
+        color: black;
+        font-size: 24px;
+      }
+      h2 {
+        color: black;
+        font-size: 18px;
+      }
+      
+      /* Add an orange border to the select element */
+      select {
+        border: 2px solid #FC6A03;
+      }
+      body {
+        color: black;
+      }
+      /* Add a purple background color to the main element */
+      main {
+        background-color: #c585f7;
       }
     </style>
   </head>
@@ -21,7 +50,7 @@
     </header>
     <main>
 
-      <h1 class="text-light">What type of permit do you have?</h1>
+      <h2 class="text-light">What type of permit do you have?</h2>
       <form>
         Permit Type:
         <select id="permitTypeSelect" name="permitType">
@@ -55,6 +84,7 @@
           }
         </script>  
       </form>
+      <p> </p>
       <p id="parking-info"></p>
 
     </main>
