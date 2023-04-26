@@ -32,7 +32,6 @@
           <option value="Employee">Employee</option>
           <option value="Park-N-Ride">Park-N-Ride</option>
           <option value="Apartment">Apartment</option>
-          <option value="Carpool">Carpool</option>
         </select>
         <button id="downloadBtn" type="button" class="btn btn-primary" onclick="updatePermitType()">Enter</button>
         <script>
@@ -51,9 +50,7 @@
               parkingInfo = 'You can park in:<br>East (P5, P7, P8)<br>West (P6)<br>Employee Spaces (Weekdays, 7:30PM to 7 AM)<br>Employee Spaces (Weekends, 4:30PM Friday to 7 AM Monday)<br>Visitor Spots (9 PM to 7 AM)';
             } else if (permitType === 'Apartment') {
               parkingInfo = 'You can park in:<br>Calhoun Courts<br>Thornhill<br>Lightsey<br>R4<br>R4 Ext<br>Employee Spaces (Weekdays, 7:30PM to 7 AM)<br>Employee Spaces (Weekends, 4:30PM Friday to 7 AM Monday)<br>Visitor Spots (9 PM to 7 AM)';
-            } else if (permitType === 'Carpool') {
-              parkingInfo = 'You can park in:<br>Brooks Center<br>P&A building<br>Sirrine lot North and South<br>C-11<br>E-4<br>Newman Hall<br>Employee Spaces (Weekdays, 7:30 PM to 7:00 AM)<br>Employee Spaces (Weekends, 4:30 PM Friday to 7:00 AM Monday)';
-            }
+            } 
             document.getElementById("parking-info").innerHTML = parkingInfo;
           }
         </script>  
