@@ -2,6 +2,9 @@
 <!DOCTYPE html>
     <html lang="en">
 
+      <head>
+        
+
     <body>
       <header class = "bg-dark p-2"></header>
       <h1 class="text-light">Clemson Parking Hub</h1>
@@ -29,6 +32,7 @@
     <meta property="og:title" content="Clemson University Parking" />
     <meta property="og:description" content="A map made by parp" />
     <meta property="og:image" content="https://api.mapbox.com/styles/v1/parp/clgy1d22k00on01padp120xb1/static/-92.25,37.75,2/435x375?access_token=pk.eyJ1IjoicGFycCIsImEiOiJjbGU0YXp0MnowMTZ0M25ybjJ3OWpocWViIn0.xptaoLxIruxrDB71XNnsjQ" />
+    <meta property="og:image" content="https://api.mapbox.com/styles/v1/parp/clgy1d22k00on01padp120xb1/static/-92.25,37.75,2/435x375?access_token=pk.eyJ1IjoicGFycCIsImEiOiJjbGU0YXp0MnowMTZ0M25ybjJ3OWpocWViIn0.xptaoLxIruxrDB71XNnsjQ" />
     <meta property="og:type" content="website" />
     <meta property="og:image:width" content="435" />
     <meta property="og:image:height" content="375" />
@@ -46,6 +50,7 @@
 
     <!-- Show app banner on iOS -->
     <meta name="apple-itunes-app" content="app-id=1208400007, app-argument=https://api.mapbox.com/styles/v1/parp/clgy1d22k00on01padp120xb1.html?access_token=pk.eyJ1IjoicGFycCIsImEiOiJjbGU0YXp0MnowMTZ0M25ybjJ3OWpocWViIn0.xptaoLxIruxrDB71XNnsjQ" />
+    <meta name="apple-itunes-app" content="app-id=1208400007, app-argument=https://api.mapbox.com/styles/v1/parp/clgy1d22k00on01padp120xb1.html?access_token=pk.eyJ1IjoicGFycCIsImEiOiJjbGU0YXp0MnowMTZ0M25ybjJ3OWpocWViIn0.xptaoLxIruxrDB71XNnsjQ" />
 
     <!-- Pinterest domain verification -->
     <meta
@@ -57,6 +62,7 @@
       name="google-site-verification"
       content=undefined
     />
+    <title>Clemson University Parking | Mapbox</title>
     <title>Clemson University Parking | Mapbox</title>
         <style>
           
@@ -86,6 +92,7 @@
 
 /* Mapbox GL geocoder */
 .mapboxgl-ctrl-geocoder--collapsed {
+  height: 30px !important;
   height: 30px !important;
   min-width: 30px !important;
   width: 30px !important;
@@ -153,6 +160,8 @@
       </p>
       <a class="btn flex-child flex-child--no-shrink" href="https://account.mapbox.com/auth/signin/?route-to=https://studio.mapbox.com">
         Sign up
+      <a class="btn flex-child flex-child--no-shrink" href="https://account.mapbox.com/auth/signin/?route-to=https://studio.mapbox.com">
+        Sign up
       </a>
     </div>
   </div>
@@ -171,6 +180,7 @@
           APIBaseURL: "https://api.mapbox.com",
           fallback: false,
           fresh: true,
+          title: "view",
           title: "view",
           zoomwheel: true
         });
