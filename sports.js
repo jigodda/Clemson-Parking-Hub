@@ -1,31 +1,25 @@
-const sportsradar = new SportsRadar({
-    apiKey: '7bcv2jcmes583skphda7q3a9',
+window.addEventListener('load', () => {
+    fetch('https://api.collegefootballdata.com/games?year=2021&team=clemson&home=1')
+      .then(response => response.json())
+      .then(data => {
+        // Check if there is a home game today
+        const today = new Date();
+        const hasHomeGameToday = data.some(game => {
+          const gameDate = new Date(game.start_date);
+          return gameDate.toDateString() === today.toDateString();
+        });
+  
+        // Update the page with the game info
+        const gameInfoElement = document.getElementById('game-info');
+        if (hasHomeGameToday) {
+          gameInfoElement.textContent = 'There is a home game today!';
+        } else {
+          gameInfoElement.textContent = 'There is no home game today.';
+        }
+      })
+      .catch(error => {
+        console.error('Error fetching game info:', error);
+        document.getElementById('game-info').textContent = 'Error fetching game info. Please try again later.';
+      });
   });
   
-  const getGameStatus = async () => {
-    // Get the current date and time
-    const now = new Date();
-  
-    // Get the list of upcoming Clemson football games
-    const games = await sportsradar.getUpcomingEvents('ncaa', 'football', 'Clemson');
-  
-    // Loop through the games and find the first one that is on today
-    for (const game of games) {
-      if (game.date === now.toISOString()) {
-        // The first game on today is a Clemson home football game
-        return true;
-      }
-    }
-  
-    // There is no Clemson home football game today
-    return false;
-  };
-  
-  // Call the getGameStatus() function and display the result
-  getGameStatus().then(function(gameStatus) {
-    if (gameStatus) {
-      document.getElementById('game-status').innerText = 'There is a Clemson home football game today!';
-    } else {
-      document.getElementById('game-status').innerText = 'There is no Clemson home football game today.';
-    }
-  });

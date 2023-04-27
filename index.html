@@ -97,7 +97,34 @@
       <p id="parking-info"></p>
       <p style="color:white;">The weather in Clemson, SC, is currently:</p>
       <p style="color:white;">55&#176;F with light showers</p>
-      <p style="color:white;">There is not currently a home football game</p>
+      <div>
+        <button type="button" onclick="getWeather()">Get Weather</button>
+      </div>
+      <div id="temp"></div>
+      <div id="description"></div>
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script>
+        function getWeather() {
+          const apiKey = '5a4ed665d6f2a799cf8a75ed45eccf94';
+          const city = 'Clemson'
+          const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+          $.ajax({
+            url: url,
+            success: function(response) {
+              const temp = response.main.temp;
+              const description = response.weather[0].description;
+              document.getElementById('temp').innerHTML = `Temperature: ${temp}°C`;
+              document.getElementById('description').innerHTML = `Weather: ${description}`;
+            },
+            error: function(xhr) {
+              alert('An error occurred: ' + xhr.status + ' ' + xhr.statusText);
+            }
+          });
+        }
+      </script>
+
+
+      <!--<p style="color:white;">There is not currently a home football game</p>-->
       
 
 
