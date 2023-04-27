@@ -3,4 +3,4 @@
 #This is a program which will help users figure out where they can park depending on their type of parking pass
 
 
-Contributors:  Peyton Arp
+Contributors:  Peyton Arp, Jaylen Goddard, Marcel Renner, Ketki Patel
