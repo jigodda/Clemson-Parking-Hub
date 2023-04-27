@@ -2,7 +2,7 @@
 <html lang="en">
   
   <head>
-      <script src="https://raw.githubusercontent.com/jigodda/Clemson-Parking-Hub/main/script.js"></script>
+      <!--<script src="https://raw.githubusercontent.com/jigodda/Clemson-Parking-Hub/main/script.js"></script>-->
       
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,10 +11,6 @@
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.css" rel="stylesheet" />
     <link href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.1/mapbox-gl-geocoder.css" rel="stylesheet" />
     
-  <title>Clemson Football Game Status</title>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://cdn.sportradar.com/libs/sportsapi-cdk/2.0.47/sportsapi-cdk.js"></script>
-  <script src="path/to/your/javascript/file.js"></script>
     <style>
       #map {
         height: 100vh;
@@ -94,26 +90,14 @@
             document.getElementById("parking-info").innerHTML = parkingInfo;
           }
         </script>  
-
+        
+        
       </form>
       
       <p id="parking-info"></p>
       <p style="color:white;">The weather in Clemson, SC, is currently:</p>
       <p style="color:white;">55&#176;F with light showers</p>
-      <script>
-        // Call the updateGameStatus() function from gameStatus.js
-        updateGameStatus().then(function(gameStatus) {
-          // Get the game status text element by its ID
-          var gameStatusText = document.getElementById("game-status");
-          
-          // Update the game status text
-          if (gameStatus === true) {
-            gameStatusText.innerText = "There is a Clemson home football game today!";
-          } else {
-            gameStatusText.innerText = "There is no Clemson home football game today.";
-          }
-        });
-      </script>
+      <p style="color:white;">There is not currently a home football game</p>
       
 
 
