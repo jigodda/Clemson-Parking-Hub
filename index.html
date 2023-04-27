@@ -8,6 +8,9 @@
     <link href="https://api.mapbox.com/mapbox-assembly/mbx/v0.28.2/assembly.min.css" rel="stylesheet" />
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.css" rel="stylesheet" />
     <link href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.1/mapbox-gl-geocoder.css" rel="stylesheet" />
+
+
+    <script src="https://raw.githubusercontent.com/jigodda/Clemson-Parking-Hub/master/clemson_parking.js"></script>
     <style>
       #map {
         height: 100vh;
@@ -44,7 +47,7 @@
       }
     </style>
   </head>
-  <body>
+  <body onload="updateGameStatus()">
     <div id="game-status"></div>
     <header class="bg-dark p-2">
       <h1 class="text-light">Clemson Parking Hub</h1>
@@ -65,24 +68,7 @@
         </select>
         <button id="downloadBtn" type="button" class="btn btn-primary" onclick="updatePermitType()">Enter</button>
         
-        <script>function getGameStatus() {
-          const apiKey = "7bcv2jcmes583skphda7q3a9";
-          const endpoint = `https://api.sportradar.us/ncaafb-t1/games/2023/REG/schedule.json?api_key=${apiKey}`;
-      
-          fetch(endpoint)
-            .then(response => response.json())
-            .then(data => {
-              const games = data.games.filter(game => game.home.alias === "CLEM");
-              const nextGame = games[0];
-              const gameStatus = nextGame.status;
-              const gameTime = new Date(nextGame.scheduled).toLocaleString();
-              const gameOpponent = nextGame.away.name;
-      
-              document.getElementById("gameStatus").innerHTML = `Next home game: ${gameOpponent} on ${gameTime}. Status: ${gameStatus}`;
-            })
-            .catch(error => console.log(error));
-          }
-            </script>
+       
             <script>
           function updatePermitType() {
             const permitType = document.getElementById("permitTypeSelect").value;
@@ -101,15 +87,16 @@
               parkingInfo = 'You can park in:<br>Calhoun Courts (Purple)<br>Thornhill (Purple)<br>Lightsey (Purple)<br>R4 (Purple)<br>R4 Ext (Purple) <br>Employee Spaces (Green) (Weekdays, 7:30PM to 7 AM)<br>Employee Spaces (Green) (Weekends, 4:30PM Friday to 7 AM Monday)<br>Metered Spots (Gray) (9 PM to 7 AM)';
             } 
             document.getElementById("parking-info").innerHTML = parkingInfo;
-            getGameStatus();
+
+            
+
           }
         </script>  
-         <script src="raw.githubusercontent.com/jigodda/Clemson-Parking-Hub.git/main/sports.js"></script>
+         
       </form>
-      <p> </p>
       <p id="parking-info"></p>
-      
-      <p id="gameStatus"></p>
+      <p id="game-status"></p>
+
 
     </main>
     <div id="map"></div>
