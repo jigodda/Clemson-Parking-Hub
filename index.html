@@ -2,14 +2,15 @@
 <html lang="en">
   
   <head>
-      <!--<script src="https://raw.githubusercontent.com/jigodda/Clemson-Parking-Hub/main/script.js"></script>-->
-      
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>  Clemson Parking Hub</title>
     <link href="https://api.mapbox.com/mapbox-assembly/mbx/v0.28.2/assembly.min.css" rel="stylesheet" />
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.css" rel="stylesheet" />
     <link href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.1/mapbox-gl-geocoder.css" rel="stylesheet" />
+
+    <script src='https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.6.0/maps/maps-web.min.js'></script>
+
     
     <style>
       #map {
@@ -95,10 +96,8 @@
       </form>
       
       <p id="parking-info"></p>
-      <p style="color:white;">The weather in Clemson, SC, is currently:</p>
-      <p style="color:white;">55&#176;F with light showers</p>
       <div>
-        <button type="button" onclick="getWeather()">Get Weather</button>
+        <button type="button" class="btn btn-primary" onclick="getWeather()">Get Weather</button>
       </div>
       <div id="temp"></div>
       <div id="description"></div>
@@ -107,7 +106,7 @@
         function getWeather() {
           const apiKey = '5a4ed665d6f2a799cf8a75ed45eccf94';
           const city = 'Clemson'
-          const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+          const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
           $.ajax({
             url: url,
             success: function(response) {
@@ -122,6 +121,7 @@
           });
         }
       </script>
+    
 
 
       <!--<p style="color:white;">There is not currently a home football game</p>-->
@@ -133,6 +133,9 @@
     <script src="https://api.mapbox.com/mapbox-assembly/mbx/v0.28.2/assembly.js"></script>
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.js"></script>
     <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.1/mapbox-gl-geocoder.min.js"></script>
+
+    
+
   </body>
 </html>
 
