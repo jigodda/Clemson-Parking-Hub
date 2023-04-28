@@ -112,7 +112,7 @@
             success: function(response) {
               const temp = response.main.temp;
               const description = response.weather[0].description;
-              document.getElementById('temp').innerHTML = `Temperature: ${temp}°C`;
+              document.getElementById('temp').innerHTML = `Temperature: ${temp}°F`;
               document.getElementById('description').innerHTML = `Weather: ${description}`;
             },
             error: function(xhr) {
