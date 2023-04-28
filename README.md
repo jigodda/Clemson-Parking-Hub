@@ -12,7 +12,7 @@ How to run program:
   
 API Keys: 
   OpenWeatherMap: 5a4ed665d6f2a799cf8a75ed45eccf94
-  MapBox:
+  MapBox:  pk.eyJ1IjoicGFycCIsImEiOiJjbGU0YXp0MnowMTZ0M25ybjJ3OWpocWViIn0.xptaoLxIruxrDB71XNnsjQ
   Imgflip: N/A
 
 
